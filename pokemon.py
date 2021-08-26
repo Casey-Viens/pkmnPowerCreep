@@ -44,6 +44,7 @@ def drawgraph(title, dict):
     fig, axs = plt.subplots(2,4)
     fig.suptitle(title)
     fig.canvas.set_window_title(title)
+    fig.set_size_inches(18.5, 10.5)
     axs[0,0].bar(gen_labels, dict['hp'])
     axs[0,0].set_title('HP')
     axs[1,0].bar(gen_labels, dict['spd'])
@@ -61,6 +62,8 @@ def drawgraph(title, dict):
     axs[1,3].bar(gen_labels, dict['dmg_eff'])
     axs[1,3].set_title('Damage Effectiveness')
     axs[1,3].set_ylim(.6,1.5)
+    # saves plots as png
+    # fig.savefig("plots/" + title + ".png")
     return
 
 def calc_dmg_eff(gen):
@@ -183,6 +186,7 @@ tier_labels = ['Uber', 'OU', 'UU', 'RU', 'NU', 'PU', 'LC', 'LCUber', 'NFE']
 fig, axs = plt.subplots(2,5)
 fig.suptitle('Tiers')
 fig.canvas.set_window_title('Tiers')
+fig.set_size_inches(28.5, 10.5)
 axs[0,0].bar(tier_labels, poke_tiers)
 axs[0,0].set_title('Tier Totals')
 axs[1,0].bar(gen_labels, tierdict['uber'])
@@ -203,6 +207,8 @@ axs[0,4].bar(gen_labels, tierdict['lc'])
 axs[0,4].set_title('LC')
 axs[1,4].bar(gen_labels, tierdict['lcuber'])
 axs[1,4].set_title('LC Uber')
+fig.savefig("plots/Tiers.png")
+
 
 avgdict = getstats('all', lambda stat: stat.mean())
 meddict = getstats('all', lambda stat: np.median(stat))
