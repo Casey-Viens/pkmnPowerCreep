@@ -207,7 +207,7 @@ axs[0,4].bar(gen_labels, tierdict['lc'])
 axs[0,4].set_title('LC')
 axs[1,4].bar(gen_labels, tierdict['lcuber'])
 axs[1,4].set_title('LC Uber')
-fig.savefig("plots/Tiers.png")
+
 
 
 avgdict = getstats('all', lambda stat: stat.mean())
